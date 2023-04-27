@@ -1,0 +1,46 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           collect-csv
+version:        0.1.0.0
+synopsis:       Program for collecting a CSV of update data
+description:    Please see the README on GitHub at <https://github.com/lowarn-dsu/lowarn/tree/main/collect-csv#readme>
+category:       System
+homepage:       https://github.com/lowarn-dsu/lowarn-xmonad#readme
+bug-reports:    https://github.com/lowarn-dsu/lowarn-xmonad/issues
+author:         Jonathan Watson
+maintainer:     Jonathan Watson
+copyright:      2023 Jonathan Watson
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/lowarn-dsu/lowarn-xmonad
+
+executable collect-csv-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_collect_csv
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , bytestring
+    , cassava
+    , containers
+    , lowarn
+    , lowarn-cli
+    , path
+    , path-io
+    , process
+    , text
+    , yaml
+  default-language: Haskell2010

@@ -1,0 +1,48 @@
+name:                collect-csv
+version:             0.1.0.0
+github:              "lowarn-dsu/lowarn-xmonad"
+license:             BSD3
+author:              "Jonathan Watson"
+# maintainer:
+copyright:           "2023 Jonathan Watson"
+
+extra-source-files:
+- README.md
+
+synopsis:            Program for collecting a CSV of update data
+category:            System
+
+description:         Please see the README on GitHub at <https://github.com/lowarn-dsu/lowarn/tree/main/collect-csv#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- bytestring
+- cassava
+- containers
+- lowarn
+- lowarn-cli
+- path
+- path-io
+- process
+- text
+- yaml
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wmissing-export-lists
+- -Wmissing-home-modules
+- -Wpartial-fields
+- -Wredundant-constraints
+
+executables:
+  collect-csv-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N

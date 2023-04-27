@@ -1,0 +1,19 @@
+resolver: lts-20.17
+
+extra-deps:
+- github: lowarn-dsu/lowarn
+  commit: 0f176038f19fa263824eeb59268deb88b6e026e8
+  subdirs:
+  - core
+  - runtime
+  - cli
+  - aeson
+- X11-1.10
+- xtest-0.2
+
+packages:
+- collect-csv
+- xmonad-benchmark
+
+ghc-options:
+  "$everything": -dynamic-too -rdynamic
