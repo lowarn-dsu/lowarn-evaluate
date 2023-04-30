@@ -17,9 +17,9 @@ lowarn-cli retrofit version --version "$OLDVERSION" apply source
 CABALVERSION=$(awk '/^version:\s+(.+)/{ print $2 }' ./"$OLDVERSION"/source/*.cabal)
 
 cp "./$NEWVERSION/simplify.patch" "./$OLDVERSION/simplify.patch"
-sed -i -e "s/$NEWVERSION/$OLDVERSION/g;" "./$OLDVERSION/simplify.patch"
+sed -i -e "s/v$NEWVERSION/v$OLDVERSION/g;" "./$OLDVERSION/simplify.patch"
 cp "./$NEWVERSION/retrofit.patch" "./$OLDVERSION/retrofit.patch"
-sed -i -e "s/$NEWVERSION/$OLDVERSION/g;" "./$OLDVERSION/retrofit.patch"
+sed -i -e "s/v$NEWVERSION/v$OLDVERSION/g;" "./$OLDVERSION/retrofit.patch"
 
 cat >"./$OLDVERSION/version-info.yaml" <<EOL
 commit: $COMMITID
