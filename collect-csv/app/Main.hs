@@ -19,11 +19,11 @@ import Lowarn.Cli.Env
 import Lowarn.Cli.Retrofit.Directory
 import Lowarn.Cli.VersionGraph
 import Lowarn.Cli.VersionPath
-import Lowarn.ProgramName
 import Lowarn.VersionNumber
 import Path
 import Path.IO
 import System.Process
+import Text.Printf
 
 data VersionInfo = VersionInfo
   { versionInfoCommit :: !Text,
@@ -98,7 +98,7 @@ main = do
   Just configPath <- findConfigPath rootDirectory searchDirectory
   Right env <- getLowarnEnv configPath
   let projectDirectory = parent configPath
-  Just programName <- return $ mkProgramName "xmonad"
+      programName = lowarnConfigProgramName $ lowarnEnvConfig env
   versionGraph <-
     getVersionGraph projectDirectory programName [reldir|retrofitted|]
   let versionsAndVersionPaths =
@@ -117,9 +117,18 @@ getVersionRecord ::
 getVersionRecord env versionNumber versionDirectory = do
   let versionRecordVersionNumber = pack $ showWithDots versionNumber
   VersionInfo {..} <-
-    decodeFileThrow $
-      toFilePath $
-        versionDirectory </> [relfile|version-info.yaml|]
+    decodeFileEither
+      ( toFilePath $
+          versionDirectory </> [relfile|version-info.yaml|]
+      )
+      >>= \case
+        Left e ->
+          fail $
+            printf
+              "Could not parse version info file at %s: %s"
+              (toFilePath versionDirectory)
+              (show e)
+        Right versionInfo -> return versionInfo
   let versionRecordCommit = versionInfoCommit
       versionRecordType = versionInfoType
       versionRecordReleaseVersion = versionInfoReleaseVersion

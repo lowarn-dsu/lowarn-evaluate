@@ -7,23 +7,23 @@ packages:
 source-repository-package
   type: git
   location: https://github.com/lowarn-dsu/lowarn.git
-  tag: 0f176038f19fa263824eeb59268deb88b6e026e8
+  tag: f60f7c746e0986ac7d6b2b34092b33fa6e5096db
   subdir: core
 
 source-repository-package
   type: git
   location: https://github.com/lowarn-dsu/lowarn.git
-  tag: 0f176038f19fa263824eeb59268deb88b6e026e8
+  tag: f60f7c746e0986ac7d6b2b34092b33fa6e5096db
   subdir: runtime
 
 source-repository-package
   type: git
   location: https://github.com/lowarn-dsu/lowarn.git
-  tag: 0f176038f19fa263824eeb59268deb88b6e026e8
+  tag: f60f7c746e0986ac7d6b2b34092b33fa6e5096db
   subdir: cli
 
 source-repository-package
   type: git
   location: https://github.com/lowarn-dsu/lowarn.git
-  tag: 0f176038f19fa263824eeb59268deb88b6e026e8
+  tag: f60f7c746e0986ac7d6b2b34092b33fa6e5096db
   subdir: aeson

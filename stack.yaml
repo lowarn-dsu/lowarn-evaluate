@@ -2,7 +2,7 @@ resolver: lts-20.17
 
 extra-deps:
 - github: lowarn-dsu/lowarn
-  commit: 0f176038f19fa263824eeb59268deb88b6e026e8
+  commit: f60f7c746e0986ac7d6b2b34092b33fa6e5096db
   subdirs:
   - core
   - runtime
