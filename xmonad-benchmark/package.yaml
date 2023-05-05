@@ -1,7 +1,7 @@
 name:                xmonad-benchmark
 version:             0.1.0.0
-github:              "lowarn-dsu/lowarn-xmonad"
-license:             BSD3
+github:              "lowarn-dsu/lowarn-evaluate"
+license:             MIT
 author:              "Jonathan Watson"
 # maintainer:
 copyright:           "2023 Jonathan Watson"
@@ -12,7 +12,7 @@ extra-source-files:
 synopsis:            Program for benchmarking xmonad
 category:            System
 
-description:         Please see the README on GitHub at <https://github.com/lowarn-dsu/lowarn/tree/main/xmonad-benchmark#readme>
+description:         Please see the README on GitHub at <https://github.com/lowarn-dsu/lowarn-evaluate/tree/main/xmonad-benchmark#readme>
 
 dependencies:
 - async

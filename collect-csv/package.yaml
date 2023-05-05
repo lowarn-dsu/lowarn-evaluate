@@ -1,7 +1,7 @@
 name:                collect-csv
 version:             0.1.0.0
-github:              "lowarn-dsu/lowarn-xmonad"
-license:             BSD3
+github:              "lowarn-dsu/lowarn-evaluate"
+license:             MIT
 author:              "Jonathan Watson"
 # maintainer:
 copyright:           "2023 Jonathan Watson"
@@ -12,7 +12,7 @@ extra-source-files:
 synopsis:            Program for collecting a CSV of update data
 category:            System
 
-description:         Please see the README on GitHub at <https://github.com/lowarn-dsu/lowarn/tree/main/collect-csv#readme>
+description:         Please see the README on GitHub at <https://github.com/lowarn-dsu/lowarn-evaluate/tree/main/collect-csv#readme>
 
 dependencies:
 - base >= 4.7 && < 5
