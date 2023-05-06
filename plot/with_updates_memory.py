@@ -1,20 +1,10 @@
 import numpy as np
-import matplotlib as mpl
 import matplotlib.pyplot as plt
-from matplotlib.gridspec import GridSpec
 import csv
 from collections import defaultdict
+from .plot_utils import *
 
-data_directory = "./data/"
-
-experiment_types = ["normal", "lowarn"]
-versions = [1147, 1163, 1223, 1234, 1271, 1326, 1363]
-releases = [0.11, 0.12, 0.13, 0.14, 0.15, 0.16, 0.17]
-
-averages = {experiment_type: [] for experiment_type in experiment_types}
-standard_deviations = {experiment_type: [] for experiment_type in experiment_types}
-
-mpl.rcParams.update({"text.usetex": True, "font.family": "serif", "font.size": 12})
+set_plot_options(False)
 
 memories = defaultdict(lambda: [])
 
@@ -36,6 +26,10 @@ memory_pairs = np.array(
     ]
 )
 
+discontinuityIndices = np.where(np.abs(np.diff(memory_pairs[:, 0])) >= 400000)
+memory_pairs[discontinuityIndices, 0] = np.nan
+memory_pairs[discontinuityIndices, 1] = np.nan
+
 fig = plt.figure(layout="constrained", figsize=(6, 8))
 ax = fig.add_subplot(111)
 
@@ -53,5 +47,5 @@ ax.fill_between(
 ax.set_xlabel("Number of updates performed")
 ax.set_ylabel("Average PSS (MiB)")
 
-plt.savefig("memory-with-updates.pgf")
-# plt.show()
+# plt.savefig("memory-with-updates.pgf")
+plt.show()

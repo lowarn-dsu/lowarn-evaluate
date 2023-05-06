@@ -1,0 +1,44 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           smp-server-benchmark
+version:        0.1.0.0
+synopsis:       Program for benchmarking smp-server
+description:    Please see the README on GitHub at <https://github.com/lowarn-dsu/lowarn-evaluate/tree/main/smp-server-benchmark#readme>
+category:       System
+homepage:       https://github.com/lowarn-dsu/lowarn-evaluate#readme
+bug-reports:    https://github.com/lowarn-dsu/lowarn-evaluate/issues
+author:         Jonathan Watson
+maintainer:     Jonathan Watson
+copyright:      2023 Jonathan Watson
+license:        MIT
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/lowarn-dsu/lowarn-evaluate
+
+executable smp-server-benchmark-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_smp_server_benchmark
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      async
+    , base >=4.7 && <5
+    , containers
+    , process
+    , simplexmq
+    , stm
+    , temporary
+    , time
+    , transformers
+  default-language: Haskell2010

@@ -6,7 +6,7 @@ CONFIGFILE=$(lowarn-cli locate)
 PROJECTDIR=$(dirname "$CONFIGFILE")
 cd "$PROJECTDIR"
 
-NUM=1
+NUM=${1:-1}
 
 while true
 do
