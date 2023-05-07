@@ -4,7 +4,7 @@ import csv
 from collections import defaultdict
 from .plot_utils import *
 
-set_plot_options(False)
+set_plot_options(True)
 
 memories = defaultdict(lambda: [])
 
@@ -47,5 +47,5 @@ ax.fill_between(
 ax.set_xlabel("Number of updates performed")
 ax.set_ylabel("Average PSS (MiB)")
 
-# plt.savefig("memory-with-updates.pgf")
-plt.show()
+plt.savefig("memory-with-updates.pgf")
+# plt.show()
