@@ -4,7 +4,6 @@
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE ScopedTypeVariables #-}
-{-# LANGUAGE TupleSections #-}
 
 module Main (main) where
 
@@ -208,14 +207,15 @@ main =
     _ ->
       forM_ setups $ \(!isCli, !versionNumber, !number) -> do
         putStrLn $ "Running " <> show (isCli, versionNumber, number)
-        (Nothing, Nothing, Nothing, processHandle) <- createProcess
-          ( shell $
-              printf
-                "smp-server-benchmark-exe %s %d %d"
-                (show isCli)
-                versionNumber
-                number
-          )
+        (Nothing, Nothing, Nothing, processHandle) <-
+          createProcess
+            ( shell $
+                printf
+                  "smp-server-benchmark %s %d %d"
+                  (show isCli)
+                  versionNumber
+                  number
+            )
         exitCode <- waitForProcess processHandle
         print exitCode
         putStrLn ""

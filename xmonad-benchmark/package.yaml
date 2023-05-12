@@ -36,7 +36,7 @@ ghc-options:
 - -Wredundant-constraints
 
 executables:
-  xmonad-benchmark-exe:
+  xmonad-benchmark:
     main:                Main.hs
     source-dirs:         app
     ghc-options:

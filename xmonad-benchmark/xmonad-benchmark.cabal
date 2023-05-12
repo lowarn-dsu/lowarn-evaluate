@@ -1,6 +1,6 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.35.2.
+-- This file has been generated from package.yaml by hpack version 0.35.1.
 --
 -- see: https://github.com/sol/hpack
 
@@ -24,7 +24,7 @@ source-repository head
   type: git
   location: https://github.com/lowarn-dsu/lowarn-evaluate
 
-executable xmonad-benchmark-exe
+executable xmonad-benchmark
   main-is: Main.hs
   other-modules:
       Paths_xmonad_benchmark

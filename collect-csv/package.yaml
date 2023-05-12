@@ -39,7 +39,7 @@ ghc-options:
 - -Wredundant-constraints
 
 executables:
-  collect-csv-exe:
+  collect-csv:
     main:                Main.hs
     source-dirs:         app
     ghc-options:

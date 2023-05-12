@@ -37,7 +37,7 @@ ghc-options:
 - -Wredundant-constraints
 
 executables:
-  smp-server-benchmark-exe:
+  smp-server-benchmark:
     main:                Main.hs
     source-dirs:         app
     ghc-options:
