@@ -30,7 +30,7 @@ discontinuityIndices = np.where(np.abs(np.diff(memory_pairs[:, 0])) >= 400000)
 memory_pairs[discontinuityIndices, 0] = np.nan
 memory_pairs[discontinuityIndices, 1] = np.nan
 
-fig = plt.figure(layout="constrained", figsize=(6, 8))
+fig = plt.figure(layout="constrained", figsize=(3.075, 8))
 ax = fig.add_subplot(111)
 
 x = np.arange(len(memory_pairs))

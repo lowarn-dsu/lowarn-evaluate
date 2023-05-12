@@ -28,7 +28,7 @@ smp_server_releases = [3.3, 3.4, 4.0, 4.1, 4.2, 4.3, 4.4, 5.0]
 
 def set_plot_options(useTex):
     mpl.rcParams.update(
-        {"text.usetex": useTex, "font.family": "serif", "font.size": 12}
+        {"text.usetex": useTex, "font.family": "serif", "font.size": 10}
     )
 
 
@@ -78,6 +78,8 @@ def get_legend_grid_spec(x, y, ratio):
         1,
         height_ratios=[ratio, 1],
         figure=fig,
+        wspace=0,
+        hspace=0,
     )
 
     ax2 = fig.add_subplot(gs[1, :], frameon=False)
@@ -102,22 +104,44 @@ def add_legend(ax, legendAx):
         h,
         l,
         loc="center",
-        ncol=2,
+        ncol=1,
         fancybox=False,
         framealpha=1,
         edgecolor="0",
     )
 
 
-def plot_bars(ax, averages_and_standard_deviations, width, x):
+def plot_bars(
+    ax, averages_and_standard_deviations, width, x, text_offset=None, precision=0
+):
+    ax.margins(x=0.025)
+
     for i, experiment_type in enumerate(experiment_types):
+        realX = x + i * width
+        heights = averages_and_standard_deviations[experiment_type][:, 0]
+        errors = averages_and_standard_deviations[experiment_type][:, 1]
+
         ax.bar(
-            x + i * width,
-            averages_and_standard_deviations[experiment_type][:, 0],
+            realX,
+            heights,
             width,
-            yerr=averages_and_standard_deviations[experiment_type][:, 1] * 2,
-            capsize=4,
+            yerr=errors * 2,
+            capsize=2,
             label=experiment_type_labels[experiment_type],
             color=colors[experiment_type],
             edgecolor="0",
         )
+
+        if text_offset is not None:
+            for coordX, coordY, height in zip(
+                realX, heights + errors * 2 + text_offset, heights
+            ):
+                ax.text(
+                    coordX,
+                    coordY,
+                    f"{height:.{precision}f}",
+                    rotation="vertical",
+                    ha="center",
+                    va="bottom",
+                    fontsize=8,
+                )
